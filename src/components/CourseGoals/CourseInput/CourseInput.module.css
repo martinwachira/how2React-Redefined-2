@@ -24,10 +24,10 @@
 }
 
 .form-control.invalid input {
-  border-color: rgb(230, 40, 40);
-  background-color: rgb(209, 126, 126);
+  border-color: red;
+  background: #ffd7d7;
 }
 
 .form-control.invalid label {
-  color: rgb(230, 40, 40);
+  color: red;
 }
