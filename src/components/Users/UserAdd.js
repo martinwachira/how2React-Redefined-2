@@ -24,8 +24,8 @@ const UserAdd = (props) => {
     e.preventDefault();
     if (name.trim().length === 0 || age.trim().length === 0) {
       setError({
-        title: "Invalid input",
-        message: "Please enter valid data, both name and age must be filled.",
+        title: "Invali Data",
+        message: "Please enter valid input, both name and age must be filled.",
       });
       return;
     }
