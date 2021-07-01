@@ -3,6 +3,7 @@ import Card from "../UI/Card";
 import ErrorModal from "../UI/ErrorModal";
 import classes from "./UserAdd.module.css";
 import Button from "../UI/Button.js";
+import Wrapper from "../Helpers/Wrapper";
 
 const UserAdd = (props) => {
   const [name, setName] = useState("");
@@ -24,7 +25,7 @@ const UserAdd = (props) => {
     e.preventDefault();
     if (name.trim().length === 0 || age.trim().length === 0) {
       setError({
-        title: "Invali Data",
+        title: "Invalid Data",
         message: "Please enter valid input, both name and age must be filled.",
       });
       return;
@@ -42,7 +43,7 @@ const UserAdd = (props) => {
   };
 
   return (
-    <>
+    <Wrapper>
       {error && (
         <ErrorModal
           title={error.title}
@@ -62,7 +63,7 @@ const UserAdd = (props) => {
           <Button type="submit">Add User</Button>
         </form>
       </Card>
-    </>
+    </Wrapper>
   );
 };
 export default UserAdd;
