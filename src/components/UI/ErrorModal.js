@@ -4,9 +4,9 @@ import Card from "./Card";
 import Button from "./Button";
 import classes from "./ErrorModal.module.css";
 
-const BackDrop = (props) => {
-  return <div className={classes.backdrop} onClick={props.onErrorCheck} />;
-};
+// const BackDrop = (props) => {
+//   return <div className={classes.backdrop} onClick={props.onErrorCheck} />;
+// };
 
 const ModalOverlay = (props) => {
   return (
@@ -27,10 +27,11 @@ const ModalOverlay = (props) => {
 const ErrorModal = (props) => {
   return (
     <>
-      {ReactDom.createPortal(
+    <div className={classes.backdrop} onClick={props.onErrorCheck} />
+      {/* {ReactDom.createPortal(
         <BackDrop onErrorCheck={props.onErrorCheck} />,
         document.getElementById("backdrop-root")
-      )}
+      )} */}
       {ReactDom.createPortal(
         <ModalOverlay
           title={props.title}
