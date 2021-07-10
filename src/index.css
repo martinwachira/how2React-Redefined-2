@@ -4,13 +4,21 @@
 
 html {
   font-family: sans-serif;
+<<<<<<< HEAD
   background: #fff;
+=======
+>>>>>>> eb0732819782f9ff8db22e6ee0b308f1cdfcb18c
 }
 
 body {
   margin: 0;
+<<<<<<< HEAD
 }
 
 main {
   margin-top: 6rem;
 }
+=======
+  background: rgb(21, 20, 20);
+}
+>>>>>>> eb0732819782f9ff8db22e6ee0b308f1cdfcb18c
