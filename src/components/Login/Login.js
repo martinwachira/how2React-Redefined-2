@@ -13,6 +13,8 @@ const emailReducer = (state, action) => {
   return { value: "", isValid: false };
 };
 
+const passwordReducer = () => {};
+
 const Login = (props) => {
   const [enteredPassword, setEnteredPassword] = useState("");
   const [passwordIsValid, setPasswordIsValid] = useState();
@@ -22,6 +24,8 @@ const Login = (props) => {
     value: "",
     isValid: false,
   });
+
+  const [passwordState, dispatchPasswordFn] = useReducer({});
 
   // useEffect(() => {
   //   const waitIdentifier = setTimeout(() => {
