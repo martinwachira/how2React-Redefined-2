@@ -37,10 +37,12 @@ const Login = (props) => {
     isValid: false,
   });
 
+  const { isValid: emailIsValid } = emailState;
+  const { isValid: passwordIsValid } = passwordState;
   useEffect(() => {
     const waitIdentifier = setTimeout(() => {
       console.log("check if valid");
-      setFormIsValid(emailState.isValid && passwordState.isValid);
+      setFormIsValid(emailIsValid && passwordIsValid);
     }, 1000);
 
     //cleanup function (debouncing)
@@ -48,7 +50,7 @@ const Login = (props) => {
       console.log("cleaning up");
       clearTimeout(waitIdentifier);
     };
-  }, [emailState, passwordState]);
+  }, [emailIsValid, passwordIsValid]);
 
   const emailChangeHandler = (event) => {
     dispatchEmailFn({ type: "USER_INPUT", val: event.target.value });
