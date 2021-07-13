@@ -14,10 +14,10 @@ const emailReducer = (state, action) => {
 };
 
 const passwordReducer = (state, action) => {
-  if (action.type === "PASS_INPUT") {
+  if (action.type === "USER_INPUT") {
     return { value: action.val, isValid: action.val.trim().length > 3 };
   }
-  if (action.type === "PASS_BLUR") {
+  if (action.type === "INPUT_BLUR") {
     return { value: state.value, isValid: state.value.trim().length > 3 };
   }
 };
@@ -54,14 +54,11 @@ const Login = (props) => {
 
   const emailChangeHandler = (event) => {
     dispatchEmailFn({ type: "USER_INPUT", val: event.target.value });
-    setFormIsValid(
-      event.target.value.includes("@") && passwordState.value.trim().length > 3
-    );
+    setFormIsValid(event.target.value.includes("@") && passwordState.isValid);
   };
 
   const passwordChangeHandler = (event) => {
-    // setEnteredPassword(event.target.value);
-    dispatchPasswordFn({ type: "PASS_INPUT", val: event.target.value });
+    dispatchPasswordFn({ type: "USER_INPUT", val: event.target.value });
     setFormIsValid(emailState.isValid && event.target.value.trim().length > 3);
   };
 
@@ -70,8 +67,7 @@ const Login = (props) => {
   };
 
   const validatePasswordHandler = () => {
-    dispatchPasswordFn({ type: "PASS_BLUR" });
-    // setPasswordIsValid(enteredPassword.trim().length > 6);
+    dispatchPasswordFn({ type: "INPUT_BLUR" });
   };
 
   const submitHandler = (event) => {
