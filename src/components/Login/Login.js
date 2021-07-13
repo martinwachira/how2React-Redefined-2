@@ -37,20 +37,18 @@ const Login = (props) => {
     isValid: false,
   });
 
-  // useEffect(() => {
-  //   const waitIdentifier = setTimeout(() => {
-  //     console.log("check if valid");
-  //     setFormIsValid(
-  //       enteredEmail.includes("@") && enteredPassword.trim().length > 3
-  //     );
-  //   }, 1000);
+  useEffect(() => {
+    const waitIdentifier = setTimeout(() => {
+      console.log("check if valid");
+      setFormIsValid(emailState.isValid && passwordState.isValid);
+    }, 1000);
 
-  //   //cleanup function (debouncing)
-  //   return () => {
-  //     console.log("cleaning up");
-  //     clearTimeout(waitIdentifier);
-  //   };
-  // }, [enteredEmail, enteredPassword]);
+    //cleanup function (debouncing)
+    return () => {
+      console.log("cleaning up");
+      clearTimeout(waitIdentifier);
+    };
+  }, [emailState, passwordState]);
 
   const emailChangeHandler = (event) => {
     dispatchEmailFn({ type: "USER_INPUT", val: event.target.value });
