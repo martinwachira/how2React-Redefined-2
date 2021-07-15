@@ -79,7 +79,7 @@ const Login = (props) => {
         <FormInput
           type="email"
           id="email"
-          label="Email"
+          label="E-mail"
           isValid={emailState}
           value={emailState.value}
           onChange={emailChangeHandler}
