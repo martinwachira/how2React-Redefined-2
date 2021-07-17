@@ -83,7 +83,7 @@ const Login = (props) => {
     } else if (!emailIsValid) {
       emailInputRef.current.focus();
     } else {
-      passwordInputRef.cuurent.focus();
+      passwordInputRef.current.focus();
     }
   };
 
