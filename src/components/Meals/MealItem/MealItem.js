@@ -2,14 +2,13 @@ import React from "react";
 import classes from "./MealItem.module.css";
 
 const MealItem = (props) => {
+  const price = `$${props.price.toFixed(2)}`;
   return (
     <li className={classes.meal}>
       <div>
         <h3>{props.name}</h3>
-      </div>
-      <div>
-        <p className={classes.description}>{props.description}</p>
-        <p className={classes.price}>{props.price}</p>
+        <div className={classes.description}>{props.description}</div>
+        <div className={classes.price}>{price}</div>
       </div>
     </li>
   );
