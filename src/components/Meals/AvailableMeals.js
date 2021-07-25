@@ -45,13 +45,11 @@ const AvailableMeals = () => {
     />
   ));
   return (
-    <>
-      <section className={classes.meals}>
-        <Card>
-          <ul>{meals}</ul>
-        </Card>
-      </section>
-    </>
+    <section className={classes.meals}>
+      <Card>
+        <ul>{meals}</ul>
+      </Card>
+    </section>
   );
 };
 
