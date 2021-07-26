@@ -15,6 +15,7 @@ const Cart = (props) => {
 
   const handleClose = () => {
     setOpenModal(!openModal);
+    alert("closing modal");
   };
 
   return (

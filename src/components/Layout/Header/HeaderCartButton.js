@@ -2,11 +2,8 @@ import classes from "./HeaderCartButton.module.css";
 import CartIcon from "../../Cart/CartIcon";
 
 const HeaderCartButton = () => {
-  const handleModalOpen = () => {
-    alert("Opening Modal");
-  };
   return (
-    <button className={classes.button} onClick={handleModalOpen}>
+    <button className={classes.button}>
       <span className={classes.icon}>
         <CartIcon />
       </span>
