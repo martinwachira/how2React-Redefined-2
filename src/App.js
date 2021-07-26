@@ -13,10 +13,11 @@ function App() {
   const handleCloseCart = () => {
     setShowCart(false);
   };
+
   return (
     <>
       {showCart && <Cart />}
-      <Header />
+      <Header onOpenCart={handleOpenCart} />
       <main>
         <Meals />
       </main>
