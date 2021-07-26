@@ -6,7 +6,7 @@ import Meals from "./components/Meals/Meals";
 function App() {
   return (
     <>
-      <Cart />
+      {/* <Cart /> */}
       <Header />
       <main>
         <Meals />
