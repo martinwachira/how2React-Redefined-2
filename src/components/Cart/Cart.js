@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import classes from "./Cart.module.css";
 import Modal from "../UI/Modal";
 
 const Cart = (props) => {
-  const [openModal, setOpenModal] = useState(false);
-
   const cartItems = (
     <ul className={classes["cart-items"]}>
       {[{ id: "c1", name: "sushi", amount: 1, price: 12.99 }].map((item) => (
@@ -12,11 +10,6 @@ const Cart = (props) => {
       ))}
     </ul>
   );
-
-  const handleClose = () => {
-    setOpenModal(!openModal);
-    alert("closing modal");
-  };
 
   return (
     <Modal>
@@ -26,7 +19,7 @@ const Cart = (props) => {
         <span>35.55</span>
       </div>
       <div className={classes.actions}>
-        <button className={classes["button-alt"]} onClick={handleClose}>
+        <button className={classes["button-alt"]} onClick={props.onCloseCart}>
           Close
         </button>
         <button className={classes.button}>Order</button>
