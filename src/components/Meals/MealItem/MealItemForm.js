@@ -18,6 +18,7 @@ const MealItemForm = (props) => {
       setAmountIsValid(false);
       return;
     }
+    props.onAddToCart(enteredAmountNo);
   };
   return (
     <form className={classes.form} onSubmit={submitHandler}>
