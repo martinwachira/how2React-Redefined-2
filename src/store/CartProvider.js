@@ -7,6 +7,8 @@ const defaultCartState = {
 };
 
 const cartReducer = (state, action) => {
+  if (action.type === "ADD") {
+  }
   return defaultCartState;
 };
 
@@ -15,8 +17,12 @@ const CartProvider = (props) => {
     cartReducer,
     defaultCartState
   );
-  const addItemToCartHandler = (item) => {};
-  const removeItemFromCartHandler = (id) => {};
+  const addItemToCartHandler = (item) => {
+    dispatchCartAction({ type: "ADD", item: item });
+  };
+  const removeItemFromCartHandler = (id) => {
+    dispatchCartAction({ type: "REMOVE", id: id });
+  };
   const cartContext = {
     items: cartState.items,
     totalAmount: cartState.totalAmount,
