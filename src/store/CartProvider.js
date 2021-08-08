@@ -10,7 +10,7 @@ const CartProvider = (props) => {
     removeItem: removeItemFromCartHandler,
   };
   return (
-    <CartContext.Provider values={cartContext}>
+    <CartContext.Provider value={cartContext}>
       {props.children}
     </CartContext.Provider>
   );
