@@ -32,7 +32,7 @@ const DUMMY_MEALS = [
     id: "m5",
     name: "Mexican Taco",
     description: "Spicy and Sweet",
-    price: 23.59,
+    price: 23.5,
   },
 ];
 
