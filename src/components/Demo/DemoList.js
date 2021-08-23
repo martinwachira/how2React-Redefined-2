@@ -8,10 +8,10 @@ const DemoList = (props) => {
   }, [items]);
   return (
     <div className={classes.list}>
-      <h1>{props.title}</h1>
+      <h3>{props.title}</h3>
       <ul>
         {sortedList.map((item) => (
-          <li>{item}</li>
+          <li key={item}>{item}</li>
         ))}
       </ul>
     </div>

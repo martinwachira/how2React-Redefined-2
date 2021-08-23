@@ -3,6 +3,11 @@
   border-radius: 10px;
   text-align: center;
   padding: 4px;
-  margin: 5px;
+  margin: 10px;
   list-style-type: none;
+}
+
+h1 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-align: center;
 }
