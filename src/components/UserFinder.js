@@ -12,20 +12,24 @@ class UserFinder extends Component {
   constructor() {
     super();
     this.state = {
-      filteredUsers: DUMMY_USERS,
+      filteredUsers: [],
       searchTerm: "",
     };
   }
 
+  componentDidMount() {
+    this.setState({ filteredUsers: DUMMY_USERS });
+  }
+
   //replicate useEffect hook in functional comp
-  componentDidUpdate() {
-    this.setState({
-      searchTerm: DUMMY_USERS.filter((user) =>
-        user.name
-          .toLowerCase()
-          .includes(this.state.onChangesearchTerm.toLowerCase())
-      ),
-    });
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.searchTerm !== this.state.searchTerm) {
+      this.setState({
+        filteredUsers: DUMMY_USERS.filter((user) =>
+          user.name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
+        ),
+      });
+    }
   }
 
   searchChangeHandler(event) {
