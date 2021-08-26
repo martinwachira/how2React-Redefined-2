@@ -16,6 +16,18 @@ class UserFinder extends Component {
       searchTerm: "",
     };
   }
+
+  //replicate useEffect hook in functional comp
+  componentDidUpdate() {
+    this.setState({
+      searchTerm: DUMMY_USERS.filter((user) =>
+        user.name
+          .toLowerCase()
+          .includes(this.state.onChangesearchTerm.toLowerCase())
+      ),
+    });
+  }
+
   searchChangeHandler(event) {
     this.setState({ searchTerm: event.target.value });
   }
