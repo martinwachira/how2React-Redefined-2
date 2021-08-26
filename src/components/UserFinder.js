@@ -14,7 +14,9 @@ const UserFinder = () => {
 
   useEffect(() => {
     setFilteredUsers(
-      DUMMY_USERS.filter((user) => user.name.includes(searchTerm))
+      DUMMY_USERS.filter((user) =>
+        user.name.toLowerCase().includes(searchTerm.toLowerCase())
+      )
     );
   }, [searchTerm]);
 
