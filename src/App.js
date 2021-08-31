@@ -42,7 +42,7 @@ function App() {
   }
 
   if (error) {
-    content = { error };
+    content = <p>{error}</p>;
   }
 
   if (loading) {
