@@ -67,7 +67,7 @@ function App() {
     setIsLoading(true);
     const data = await res.json();
     if (res.status === 200) {
-      console.log("data", res);
+      console.log("data", data);
       setIsLoading(false);
     }
   }
