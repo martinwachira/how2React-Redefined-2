@@ -42,15 +42,20 @@ function App() {
     fetchMoviesHandler();
   }, [fetchMoviesHandler]);
 
-  function addMovieHandler(movie) {
+  async function addMovieHandler(movie) {
     // console.log(movie);
-    fetch("https://react-redefined-default-rtdb.firebaseio.com/movies.json", {
-      method: "POST",
-      body: JSON.stringify(movie),
-      headers: {
-        "Content-Type": "Application/json",
-      },
-    });
+    const res = await fetch(
+      "https://react-redefined-default-rtdb.firebaseio.com/movies.json",
+      {
+        method: "POST",
+        body: JSON.stringify(movie),
+        headers: {
+          "Content-Type": "Application/json",
+        },
+      }
+    );
+    const data = await res.json();
+    console.log("data", data);
   }
 
   let content = <p>Found no movies.</p>;
