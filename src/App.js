@@ -22,7 +22,6 @@ function App() {
       }
 
       const data = await response.json();
-      console.log("movies", data);
       const loadedMovies = [];
 
       for (const key in data) {
@@ -65,8 +64,12 @@ function App() {
         },
       }
     );
+    setIsLoading(true);
     const data = await res.json();
-    console.log("data", data);
+    if (res.status === 200) {
+      console.log("data", res);
+      setIsLoading(false);
+    }
   }
 
   let content = <p>Found no movies.</p>;
@@ -87,7 +90,9 @@ function App() {
     <React.Fragment>
       <section>
         <AddMovie onAddMovie={addMovieHandler} />
+        {isLoading && <p>Loading...</p>}
       </section>
+
       <section>
         <button onClick={fetchMoviesHandler}>Fetch Movies</button>
       </section>
