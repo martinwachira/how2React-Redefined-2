@@ -22,16 +22,28 @@ function App() {
       }
 
       const data = await response.json();
+      console.log("movies", data);
+      const loadedMovies = [];
 
-      const transformedMovies = data.results.map((movieData) => {
-        return {
-          id: movieData.episode_id,
-          title: movieData.title,
-          openingText: movieData.opening_crawl,
-          releaseDate: movieData.release_date,
-        };
-      });
-      setMovies(transformedMovies);
+      for (const key in data) {
+        loadedMovies.push({
+          id: key,
+          title: data[key].title,
+          openingText: data[key].openingText,
+          releaseDate: data[key].releaseDate,
+        });
+      }
+
+      // const transformedMovies = data.results.map((movieData) => {
+      //   return {
+      //     id: movieData.episode_id,
+      //     title: movieData.title,
+      //     openingText: movieData.opening_crawl,
+      //     releaseDate: movieData.release_date,
+      //   };
+      // });
+
+      setMovies(loadedMovies);
     } catch (error) {
       setError(error.message);
     }
@@ -43,7 +55,6 @@ function App() {
   }, [fetchMoviesHandler]);
 
   async function addMovieHandler(movie) {
-    // console.log(movie);
     const res = await fetch(
       "https://react-redefined-default-rtdb.firebaseio.com/movies.json",
       {
