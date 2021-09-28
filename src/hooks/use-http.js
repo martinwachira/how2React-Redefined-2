@@ -9,9 +9,9 @@ const useHttp = (reqConfig, applyData) => {
     setError(null);
     try {
       const response = await fetch(reqConfig.url, {
-        method: reqConfig.method,
-        headers: reqConfig.headers,
-        body: JSON.stringify(reqConfig.body),
+        method: reqConfig.method ? reqConfig.method : "GET",
+        headers: reqConfig.headers ? reqConfig.headers : {},
+        body: reqConfig.body ? JSON.stringify(reqConfig.body) : null,
       });
 
       if (!response.ok) {
