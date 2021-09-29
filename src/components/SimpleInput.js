@@ -9,6 +9,11 @@ const SimpleInput = (props) => {
   const onSubmitHandler = (e) => {
     e.preventDefault();
 
+    if (name.trim("") === "") {
+      alert("no value");
+      return;
+    }
+
     console.log("Entered name:", name);
     setName("");
   };
