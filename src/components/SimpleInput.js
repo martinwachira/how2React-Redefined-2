@@ -41,6 +41,7 @@ const SimpleInput = (props) => {
     }
 
     setName("");
+    setEmail("");
     setInputTouched(false);
     setEmailTouched(false);
   };
@@ -59,19 +60,19 @@ const SimpleInput = (props) => {
           onBlur={inputBlurHandler}
           onChange={nameChangeHandler}
         />
+        {nameIsInvalid && <p className="error-text">Name Mustn't be Empty</p>}
       </div>
-      {nameIsInvalid && <p className="error-text">Name Mustn't be Empty</p>}
       <div className={inputClasses}>
         <label htmlFor="name">Email</label>
         <input
-          type="text"
+          type="email"
           id="email"
           value={email}
           onBlur={inputBlurHandler}
           onChange={emailChangeHandler}
         />
+        {emailIsInvalid && <p className="error-text">Incorrect email</p>}
       </div>
-      {emailIsInvalid && <p className="error-text">Incorrect email</p>}
       <div className="form-actions">
         <button disabled={!formIsValid}>Submit</button>
       </div>
