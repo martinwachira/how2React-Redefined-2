@@ -82,9 +82,9 @@ button:active {
 button:disabled,
 button:disabled:hover,
 button:disabled:active {
-  color: red;
+  color: rgb(202, 107, 107);
   background-color: #ccc;
-  border: red;
+  border-color: rgb(119, 117, 117);
   cursor: not-allowed;
 }
 
