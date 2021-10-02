@@ -27,6 +27,9 @@ const SimpleInput = (props) => {
 
   const inputBlurHandler = () => {
     setInputTouched(true);
+  };
+
+ const emailBlurHandler = () => {
     setEmailTouched(true);
   };
 
@@ -68,7 +71,7 @@ const SimpleInput = (props) => {
           type="email"
           id="email"
           value={email}
-          onBlur={inputBlurHandler}
+          onBlur={emailBlurHandler}
           onChange={emailChangeHandler}
         />
         {emailIsInvalid && <p className="error-text">Incorrect email</p>}
