@@ -7,16 +7,20 @@ const SimpleInput = () => {
     hasError: nameHasError,
     valueChangeHandler: nameChangeHandler,
     inputBlurHandler: nameBlurHandler,
-    email: address,
-    emailIsValid,
-    emailHasError,
-    emailChangeHandler,
-    emailBlurHandler,
     reset: resetName,
   } = useInput(
     (value) => value.trim("") !== "",
     (email) => email.includes("@") && email.includes(".")
   );
+
+  const {
+    value: email,
+    isValid: emailIsValid,
+    valueChangeHandler: emailChangeHandler,
+    inputBlurHandler: emailBlurHandler,
+    hasError: emailHasError,
+    reset: resetEmail,
+  } = useInput((value) => value.includes("@") && value.includes("."));
 
   let formIsValid = false;
 
@@ -32,6 +36,7 @@ const SimpleInput = () => {
     }
 
     resetName();
+    resetEmail();
   };
 
   const inputClasses = nameHasError ? "form-control invalid" : "form-control";
@@ -51,11 +56,11 @@ const SimpleInput = () => {
         {nameHasError && <p className="error-text">Name Mustn't be Empty</p>}
       </div>
       <div className={emailClasses}>
-        <label htmlFor="address">Email</label>
+        <label htmlFor="email">Email</label>
         <input
           type="email"
-          id="address"
-          value={address}
+          id="email"
+          value={email}
           onBlur={emailBlurHandler}
           onChange={emailChangeHandler}
         />
