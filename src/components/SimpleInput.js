@@ -8,10 +8,7 @@ const SimpleInput = () => {
     valueChangeHandler: nameChangeHandler,
     inputBlurHandler: nameBlurHandler,
     reset: resetName,
-  } = useInput(
-    (value) => value.trim("") !== "",
-    (email) => email.includes("@") && email.includes(".")
-  );
+  } = useInput((value) => value.trim("") !== "");
 
   const {
     value: email,
