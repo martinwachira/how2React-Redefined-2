@@ -38,7 +38,7 @@ const BasicForm = () => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    if (!fNameIsValid && !lNameIsValid) {
+    if (!formIsValid) {
       return;
     }
 
