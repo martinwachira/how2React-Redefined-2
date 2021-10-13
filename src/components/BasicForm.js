@@ -1,5 +1,8 @@
 import useCustom from "./../hooks/custom-hook";
 
+const inputVerifier = (value) => value.trim() !== "";
+const addressVerifier = (value) => value.includes("@") && value.includes(".");
+
 const BasicForm = () => {
   const {
     value: fname,
@@ -8,7 +11,7 @@ const BasicForm = () => {
     resetInput: resetFname,
     inputChangeHandler: fNameChangeHandler,
     inputBlurHandler: fNameBlurHandler,
-  } = useCustom((value) => value.trim("") !== "");
+  } = useCustom(inputVerifier);
   const {
     value: lname,
     inputHasError: lNameError,
@@ -16,7 +19,7 @@ const BasicForm = () => {
     resetInput: resetLname,
     inputChangeHandler: lNameChangeHandler,
     inputBlurHandler: lNameBlurHandler,
-  } = useCustom((value) => value.trim("") !== "");
+  } = useCustom(inputVerifier);
   const {
     value: address,
     inputHasError: addressError,
@@ -24,7 +27,7 @@ const BasicForm = () => {
     resetInput: resetAddress,
     inputChangeHandler: addressChangeHandler,
     inputBlurHandler: addressBlurHandler,
-  } = useCustom((value) => value.includes("@") && value.includes("."));
+  } = useCustom(addressVerifier);
 
   let formIsValid = false;
 
