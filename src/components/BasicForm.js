@@ -42,6 +42,7 @@ const BasicForm = () => {
       return;
     }
 
+    console.log(fname, lname, address);
     resetFname("");
     resetLname("");
     resetAddress("");
