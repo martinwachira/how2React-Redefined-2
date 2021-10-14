@@ -1,7 +1,7 @@
-import React from "react";
-import classes from "./AvailableMeals.module.css";
 import Card from "../UI/Card";
 import MealItem from "./MealItem/MealItem";
+import React from "react";
+import classes from "./AvailableMeals.module.css";
 
 const DUMMY_MEALS = [
   {
@@ -33,6 +33,12 @@ const DUMMY_MEALS = [
     name: "Mexican Taco",
     description: "Spicy and Sweet",
     price: 23.5,
+  },
+  {
+    id: "m6",
+    name: "Chicken Biryani",
+    description: "Swahili made Biryani",
+    price: 43.15,
   },
 ];
 
