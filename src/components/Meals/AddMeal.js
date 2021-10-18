@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { postMeals } from "../../api/MealsApi";
+
 const AddMeal = () => {
   const [initState, setInitState] = useState({
     meal: "",
@@ -9,21 +11,22 @@ const AddMeal = () => {
 
   const handleChange = (e) => {
     const value = e.target.value;
-    const name = e.target.name;
     setInitState({
       ...initState,
-      [name]: value,
+      [e.target.name]: value,
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // const mealsObj = {
-    //     meal: initState.meal,
-    //     description: initState.description,
-    //     price: initState.price,
-    //   };
+    const mealsObj = {
+      meal: initState.meal,
+      description: initState.description,
+      price: initState.price,
+    };
+
+    postMeals(mealsObj);
 
     setInitState({
       meal: "",
