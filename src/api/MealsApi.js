@@ -20,6 +20,6 @@ export async function getMeals() {
     "https://react-redefined-default-rtdb.firebaseio.com/meals.json"
   );
   const data = await res.json();
-  console.log("fetched data", data);
   return data;
+  //   console.log("fetched data", data);
 }
