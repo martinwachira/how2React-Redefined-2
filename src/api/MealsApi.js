@@ -17,10 +17,10 @@ export async function postMeals(meals) {
 
 export async function getMeals() {
   const res = await fetch(
-    "https://react-redefined-default-rtdb.firebaseio.com/meals.json",
-    {
-      method: "GET",
-    }
+    "https://react-redefined-default-rtdb.firebaseio.com/meals.json"
+    // {
+    //   method: "GET",
+    // }
   );
   const data = await res.json();
   console.log("fetched data", data);
