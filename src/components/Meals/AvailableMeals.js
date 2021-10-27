@@ -49,45 +49,42 @@ const AvailableMeals = () => {
   const [meals, setMeals] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  // const fetchMeals = () => {
-  getMeals().then((response) => {
-    console.log("response", response);
-  });
-  // };
+  const fetchMeals = useCallback(async () => {
+    setIsLoading(true);
+    getMeals().then((response) => {
+      const loadedMeals = [];
 
-  // const fetchMealsHandler = useCallback(async () => {
-  //   setIsLoading(true);
+      for (const key in response) {
+        loadedMeals.push({
+          id: key,
+          meal: response[key].meal,
+          description: response[key].description,
+          price: response[key].price,
+        });
+      }
 
-  //     const loadedMeals = [];
+      setMeals(loadedMeals);
+      setIsLoading(false);
+      console.log("loaded meals", loadedMeals);
+    });
+  }, []);
 
-  //     for (const key in data) {
-  //       loadedMeals.push({
-  //         id: key,
-  //         title: data[key].title,
-  //         openingText: data[key].openingText,
-  //         releaseDate: data[key].releaseDate,
-  //       });
-  //     }
+  useEffect(() => {
+    fetchMeals();
+  }, [fetchMeals]);
 
-  //     setMeals(loadedMovies)
-  //   }
-  //   setIsLoading(false)
-  // }, []);
-
-  const AllMeals = DUMMY_MEALS.map((meal) => (
+  const AllMeals = meals.map((meal) => (
     <MealItem
       id={meal.id}
       key={meal.id}
       name={meal.name}
-      price={meal.price}
       description={meal.description}
+      price={meal.price}
     />
   ));
   return (
     <section className={classes.meals}>
-      <Card>
-        <ul>{AllMeals}</ul>
-      </Card>
+      <Card>{isLoading ? "Loading..." : <ul>{AllMeals}</ul>}</Card>
     </section>
   );
 };
