@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import Card from "../UI/Card";
 import MealItem from "./MealItem/MealItem";
 import React from "react";
 import classes from "./AvailableMeals.module.css";
+import { getMeals } from "../../api/MealsApi";
 
 const DUMMY_MEALS = [
   {
@@ -47,6 +48,31 @@ const DUMMY_MEALS = [
 const AvailableMeals = () => {
   const [meals, setMeals] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  // const fetchMeals = () => {
+  getMeals().then((response) => {
+    console.log("response", response);
+  });
+  // };
+
+  // const fetchMealsHandler = useCallback(async () => {
+  //   setIsLoading(true);
+
+  //     const loadedMeals = [];
+
+  //     for (const key in data) {
+  //       loadedMeals.push({
+  //         id: key,
+  //         title: data[key].title,
+  //         openingText: data[key].openingText,
+  //         releaseDate: data[key].releaseDate,
+  //       });
+  //     }
+
+  //     setMeals(loadedMovies)
+  //   }
+  //   setIsLoading(false)
+  // }, []);
 
   const AllMeals = DUMMY_MEALS.map((meal) => (
     <MealItem
