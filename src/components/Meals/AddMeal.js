@@ -13,9 +13,6 @@ const AddMeal = () => {
     const value = e.target.value;
     setInitState({
       ...initState,
-      // meal: value,
-      // description: value,
-      // price: value,
       [e.target.name]: value,
     });
   };

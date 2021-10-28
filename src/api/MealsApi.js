@@ -21,5 +21,4 @@ export async function getMeals() {
   );
   const data = await res.json();
   return data;
-  //   console.log("fetched data", data);
 }
