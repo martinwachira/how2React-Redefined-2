@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
-import classes from "./Cart.module.css";
-import Modal from "../UI/Modal";
+
 import CartContext from "../../store/cart-contex";
 import CartItem from "./CartItem";
+import Checkout from "./Checkout";
+import Modal from "../UI/Modal";
+import classes from "./Cart.module.css";
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
@@ -36,6 +38,7 @@ const Cart = (props) => {
         <span>Total Amount</span>
         <span>{totalAmount}</span>
       </div>
+      <Checkout />
       <div className={classes.actions}>
         <button className={classes["button-alt"]} onClick={props.onCloseCart}>
           Close
