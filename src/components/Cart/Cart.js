@@ -58,7 +58,7 @@ const Cart = (props) => {
         <span>Total Amount</span>
         <span>{totalAmount}</span>
       </div>
-      {isCheckout && <Checkout />}
+      {isCheckout && <Checkout onCancel={props.onCloseCart} />}
       {!isCheckout && modalActions}
     </Modal>
   );
