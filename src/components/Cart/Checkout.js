@@ -1,8 +1,12 @@
 import classes from "./Checkout.module.css";
 
 const Checkout = (props) => {
+  const confirmHandler = (e) => {
+    e.preventDefault();
+    console.log("confirmed");
+  };
   return (
-    <form>
+    <form onSubmit={confirmHandler}>
       <div className={classes.control}>
         <label htmlFor="name">Name</label>
         <input type="text" id="name" placeholder="name" />
