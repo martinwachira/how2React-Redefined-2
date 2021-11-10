@@ -1,7 +1,15 @@
+import { useRef, useState } from "react";
+
 import classes from "./Checkout.module.css";
-import { useRef } from "react";
 
 const Checkout = (props) => {
+  const [inputValidity, setInputValidity] = useState({
+    name: true,
+    street: true,
+    city: true,
+    postal: true,
+  });
+
   const nameInputRef = useRef();
   const streeInputRef = useRef();
   const postalnputRef = useRef();
