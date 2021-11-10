@@ -42,11 +42,12 @@ const AddMeal = () => {
       style={{
         padding: "2rem",
         color: "black",
-        background: "white",
       }}
     >
+      <p>custom meal input form</p>
       <form onSubmit={handleSubmit}>
         <input
+          style={{ display: "block", marginTop: "1rem" }}
           type="text"
           name="meal"
           placeholder="meal name"
@@ -54,6 +55,7 @@ const AddMeal = () => {
           onChange={handleChange}
         />
         <input
+          style={{ display: "block", marginTop: "1rem" }}
           type="text"
           name="description"
           placeholder="desc"
@@ -61,6 +63,7 @@ const AddMeal = () => {
           onChange={handleChange}
         />
         <input
+          style={{ display: "block", marginTop: "1rem" }}
           type="number"
           name="price"
           placeholder="price"
