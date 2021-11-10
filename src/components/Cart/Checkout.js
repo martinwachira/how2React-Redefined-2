@@ -7,6 +7,9 @@ const Checkout = (props) => {
   const postalnputRef = useRef();
   const cityInputRef = useRef();
 
+  const isNotEmpty = (value) => value.trim() !== "";
+  const isLongEnough = (value) => value.trim().length === 5;
+
   const confirmHandler = (event) => {
     event.preventDefault();
 
@@ -14,6 +17,21 @@ const Checkout = (props) => {
     const enteredStreet = streeInputRef.current.value;
     const enteredPostal = postalnputRef.current.value;
     const enteredCity = cityInputRef.current.value;
+
+    const nameIsValid = isNotEmpty(enteredName);
+    const streetIsValid = isNotEmpty(enteredStreet);
+    const cityIsValid = isNotEmpty(enteredCity);
+    const postalIsValid = isLongEnough(enteredPostal);
+
+    const formIsValid =
+      nameIsValid && streetIsValid && cityIsValid && postalIsValid;
+
+    if (!formIsValid) {
+      //throw some error
+      return;
+    }
+
+    //submit data
   };
 
   return (
