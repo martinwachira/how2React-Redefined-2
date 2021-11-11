@@ -23,7 +23,19 @@ const Cart = (props) => {
     setIsCheckout(true);
   };
 
-  const submitOrderHandler = (userData) => {};
+  const submitOrderHandler = (userData) => {
+    //submit data to a firebase database
+    fetch("https://react-redefined-default-rtdb.firebaseio.com/orders.json", {
+      method: "POST",
+      body: JSON.stringify({
+        user: userData,
+        orderedItems: cartCtx.items,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  };
 
   const cartItems = (
     <ul className={classes["cart-items"]}>
