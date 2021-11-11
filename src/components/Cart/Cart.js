@@ -8,6 +8,7 @@ import classes from "./Cart.module.css";
 
 const Cart = (props) => {
   const [isCheckout, setIsCheckout] = useState(false);
+  const [isSumbit, setIsSubmit] = useState(false);
   const cartCtx = useContext(CartContext);
   const totalAmount = `$ ${cartCtx.totalAmount.toFixed(2)}`;
   const hasItems = cartCtx.items.length > 0;
@@ -23,18 +24,27 @@ const Cart = (props) => {
     setIsCheckout(true);
   };
 
-  const submitOrderHandler = (userData) => {
-    //submit data to a firebase database
-    fetch("https://react-redefined-default-rtdb.firebaseio.com/orders.json", {
-      method: "POST",
-      body: JSON.stringify({
-        user: userData,
-        orderedItems: cartCtx.items,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+  const submitOrderHandler = async (userData) => {
+    //submit data to a firebase database https://react-redefined-default-rtdb.firebaseio.com/orders.json and catch errors
+    setIsSubmit(true);
+    try {
+      const response = await fetch(
+        "https://react-redefined-default-rtdb.firebaseio.com/orders.json",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            user: userData,
+            orderedItems: cartCtx.items,
+          }),
+        }
+      );
+      if (response.ok) {
+        // cartCtx.clearCart();
+        console.log("successful update");
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const cartItems = (
