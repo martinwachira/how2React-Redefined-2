@@ -4,7 +4,7 @@ import { postMeals } from "../../api/MealsApi";
 
 const AddMeal = () => {
   const [initState, setInitState] = useState({
-    meal: "",
+    name: "",
     description: "",
     price: 0,
   });
@@ -21,7 +21,7 @@ const AddMeal = () => {
     e.preventDefault();
 
     const mealsObj = {
-      meal: initState.meal,
+      name: initState.name,
       description: initState.description,
       price: initState.price,
     };
@@ -29,7 +29,7 @@ const AddMeal = () => {
     postMeals(mealsObj);
 
     setInitState({
-      meal: "",
+      name: "",
       description: "",
       price: "",
     });
@@ -49,9 +49,9 @@ const AddMeal = () => {
         <input
           style={{ display: "block", marginTop: "1rem" }}
           type="text"
-          name="meal"
+          name="name"
           placeholder="meal name"
-          value={initState.meal}
+          value={initState.name}
           onChange={handleChange}
         />
         <input

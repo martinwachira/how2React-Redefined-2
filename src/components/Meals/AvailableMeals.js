@@ -18,13 +18,14 @@ const AvailableMeals = () => {
       for (const key in response) {
         loadedMeals.push({
           id: key,
-          meal: response[key].meal,
+          name: response[key].name,
           description: response[key].description,
           price: response[key].price,
         });
       }
       console.log("loaded meals", loadedMeals);
       setMeals(loadedMeals);
+      console.log("loaded meals", loadedMeals);
       setIsLoading(false);
     });
   }, []);
