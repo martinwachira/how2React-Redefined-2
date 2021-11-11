@@ -8,7 +8,8 @@ import classes from "./Cart.module.css";
 
 const Cart = (props) => {
   const [isCheckout, setIsCheckout] = useState(false);
-  const [isSumbit, setIsSubmit] = useState(false);
+  const [isSubmit, setIsSubmit] = useState(false);
+  const [didSubmit, setDidSubmit] = useState(false);
   const cartCtx = useContext(CartContext);
   const totalAmount = `$ ${cartCtx.totalAmount.toFixed(2)}`;
   const hasItems = cartCtx.items.length > 0;
@@ -40,6 +41,8 @@ const Cart = (props) => {
       );
       if (response.ok) {
         // cartCtx.clearCart();
+        setIsSubmit(false);
+        setDidSubmit(true);
         console.log("successful update");
       }
     } catch (err) {
@@ -75,8 +78,8 @@ const Cart = (props) => {
     </div>
   );
 
-  return (
-    <Modal onClose={props.onCloseCart}>
+  const cartModalContent = (
+    <>
       {cartItems}
       <div className={classes.total}>
         <span>Total Amount</span>
@@ -86,6 +89,26 @@ const Cart = (props) => {
         <Checkout onConfirm={submitOrderHandler} onCancel={props.onCloseCart} />
       )}
       {!isCheckout && modalActions}
+    </>
+  );
+
+  const isSubmittingContent = isSubmit && <p>Submitting order...</p>;
+  const didSubmitContent = !isSubmit && didSubmit && (
+    <>
+      <p>Order submitted successfully!</p>
+      <div className={classes.actions}>
+        <button className={classes.button} onClick={props.onCloseCart}>
+          Close
+        </button>
+      </div>
+    </>
+  );
+
+  return (
+    <Modal onClose={props.onCloseCart}>
+      {!isSubmit && !didSubmit && cartModalContent}
+      {isSubmittingContent}
+      {didSubmitContent}
     </Modal>
   );
 };
