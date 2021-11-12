@@ -40,7 +40,7 @@ const Cart = (props) => {
         }
       );
       if (response.ok) {
-        // cartCtx.clearCart();
+        cartCtx.clearCart();
         setIsSubmit(false);
         setDidSubmit(true);
         console.log("successful update");
