@@ -1,0 +1,6 @@
+.button {
+  border: 0.1rem yellow solid;
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 0.2rem;
+}
