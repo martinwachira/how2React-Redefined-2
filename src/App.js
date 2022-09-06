@@ -1,10 +1,19 @@
+import { Route, Router } from "react-router-dom";
+
+import About from "./Pages/About";
 import Button from "./Components/Common/Button.js";
+import Welcome from "./Pages/Welcome";
 
 function App() {
   return (
     <div>
-      <h2>Let's get started!</h2>
       <Button label="Register"></Button>
+      <Route path="/welcome">
+        <Welcome />
+      </Route>
+      <Route path="/about">
+        <About />
+      </Route>
     </div>
   );
 }
