@@ -8,7 +8,7 @@ import Welcome from "./Pages/Welcome";
 function App() {
   return (
     <div>
-      <Button label="Register"></Button>
+      {/* <Button label="Register"></Button> */}
       <MainHeader />
       <Route path="/welcome">
         <Welcome />
