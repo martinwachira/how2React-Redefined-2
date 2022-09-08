@@ -5,14 +5,16 @@ const MainHeader = () => {
   return (
     <>
       <header className={classes.header}>
-        <ul>
-          <li>
-            <Link to="/welcome">Welcome</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-        </ul>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/welcome">Welcome</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+          </ul>
+        </nav>
       </header>
     </>
   );
