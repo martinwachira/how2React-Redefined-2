@@ -6,7 +6,9 @@ import React from "react";
 const Meals = () => {
   return (
     <>
-      <AddMeal />
+      <div style={{ margin: "3%" }}>
+        <AddMeal />
+      </div>
       <MealsSummary />
       <AvailableMeals />
     </>
