@@ -1,4 +1,4 @@
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 
 import About from "./Pages/About";
 import Button from "./Components/Common/Button.js";
@@ -13,6 +13,9 @@ function App() {
       {/* <Button label="Register"></Button> */}
       <MainHeader />
       <Switch>
+        <Route path="/" exact>
+          <Redirect to="/welcome" />
+        </Route>
         <Route path="/welcome">
           <Welcome />
         </Route>
