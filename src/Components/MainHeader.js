@@ -17,6 +17,11 @@ const MainHeader = () => {
                 About
               </NavLink>
             </li>
+            <li>
+              <NavLink activeClassName={classes.active} to="/products">
+                Products
+              </NavLink>
+            </li>
           </ul>
         </nav>
       </header>
