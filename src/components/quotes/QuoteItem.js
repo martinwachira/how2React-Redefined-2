@@ -1,4 +1,5 @@
-import classes from './QuoteItem.module.css';
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import classes from "./QuoteItem.module.css";
 
 const QuoteItem = (props) => {
   return (
@@ -9,7 +10,7 @@ const QuoteItem = (props) => {
         </blockquote>
         <figcaption>{props.author}</figcaption>
       </figure>
-      <a className='btn'>
+      <a href="#" className="btn">
         View Fullscreen
       </a>
     </li>
