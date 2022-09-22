@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 
 const Comments = () => {
-  const params = useParams();
   const [isAddingComment, setIsAddingComment] = useState(false);
 
   const startAddCommentHandler = () => {

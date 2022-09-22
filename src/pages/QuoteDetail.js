@@ -8,7 +8,7 @@ const QuoteDetail = () => {
     <>
       <p>Details page</p>
       {params.quoteId}
-      <Route path="/quotes/:quoteId/:commentId">
+      <Route path={`/quotes/${params.quoteId}/commentId`}>
         <Comments />
       </Route>
     </>
