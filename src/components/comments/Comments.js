@@ -14,7 +14,6 @@ const Comments = () => {
   return (
     <section className={classes.comments}>
       <h2>User Comments</h2>
-      {params.commentId}
       {!isAddingComment && (
         <button className="btn" onClick={startAddCommentHandler}>
           Add a Comment
