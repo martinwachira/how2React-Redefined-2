@@ -1,7 +1,9 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+import { Link, useParams } from "react-router-dom";
+
 import classes from "./QuoteItem.module.css";
 
 const QuoteItem = (props) => {
+  const params = useParams();
   return (
     <li className={classes.item}>
       <figure>
@@ -10,9 +12,9 @@ const QuoteItem = (props) => {
         </blockquote>
         <figcaption>{props.author}</figcaption>
       </figure>
-      <a href="#" className="btn">
+      <Link to={`/quotes/${props.id}`} className="btn">
         View Fullscreen
-      </a>
+      </Link>
     </li>
   );
 };

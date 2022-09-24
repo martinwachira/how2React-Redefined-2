@@ -7,7 +7,6 @@ const DUMMY_LIST = [
 const AllQuotes = () => {
   return (
     <div>
-      {/* <p>All Quotes Page</p> */}
       <QuoteList quotes={DUMMY_LIST} />
     </div>
   );
