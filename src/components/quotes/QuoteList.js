@@ -7,15 +7,18 @@ import classes from "./QuoteList.module.css";
 const QuoteList = (props) => {
   const history = useHistory();
   const location = useLocation();
-  console.log(location);
+  const queryParams = new URLSearchParams(location.search);
+  const isSortingAscending = queryParams.get("sort") === "asc";
   const changeSortingHandler = () => {
-    history.push("?sort=asc");
+    history.push("?sort=" + (isSortingAscending ? "desc" : "asc"));
   };
 
   return (
     <Fragment>
       <div className={classes.sorting}>
-        <button onClick={changeSortingHandler}>Sort Ascending</button>
+        <button onClick={changeSortingHandler}>
+          Sort {isSortingAscending ? "Descending" : "Ascending"}
+        </button>
       </div>
       <ul className={classes.list}>
         {props.quotes.map((quote) => (
