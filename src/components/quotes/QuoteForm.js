@@ -21,6 +21,9 @@ const QuoteForm = (props) => {
     props.onAddQuote({ author: enteredAuthor, text: enteredText });
   }
 
+  const onFinishSubmission = () => {
+    setIsEntering(false);
+  };
   const onFormFocusedHandler = () => {
     setIsEntering(true);
   };
@@ -30,7 +33,7 @@ const QuoteForm = (props) => {
       <Prompt
         when={isEntering}
         message={(location) =>
-          "Are sure you want to Exit? ALl your changes will be lost!"
+          "Are sure you want to Exit? All your changes will be lost!"
         }
       />
       <Card>
@@ -54,7 +57,9 @@ const QuoteForm = (props) => {
             <textarea id="text" rows="5" ref={textInputRef}></textarea>
           </div>
           <div className={classes.actions}>
-            <button className="btn">Add Quote</button>
+            <button onClick={onFinishSubmission} className="btn">
+              Add Quote
+            </button>
           </div>
         </form>
       </Card>
