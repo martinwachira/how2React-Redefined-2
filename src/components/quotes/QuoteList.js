@@ -4,11 +4,25 @@ import { Fragment } from "react";
 import QuoteItem from "./QuoteItem";
 import classes from "./QuoteList.module.css";
 
+const sortQuotes = (quotes, ascending) => {
+  return quotes.sort((firstQuote, secondQuote) => {
+    if (ascending) {
+      return firstQuote.id > secondQuote.id ? 1 : -1;
+    } else {
+      return firstQuote.id < secondQuote.id ? 1 : -1;
+    }
+  });
+};
+
 const QuoteList = (props) => {
   const history = useHistory();
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
+
   const isSortingAscending = queryParams.get("sort") === "asc";
+
+  const sortedQuotes = sortQuotes(props.quotes, isSortingAscending);
+
   const changeSortingHandler = () => {
     history.push("?sort=" + (isSortingAscending ? "desc" : "asc"));
   };
@@ -21,7 +35,7 @@ const QuoteList = (props) => {
         </button>
       </div>
       <ul className={classes.list}>
-        {props.quotes.map((quote) => (
+        {sortedQuotes.map((quote) => (
           <QuoteItem
             key={quote.id}
             id={quote.id}
